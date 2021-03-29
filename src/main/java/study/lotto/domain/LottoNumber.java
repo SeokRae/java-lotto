@@ -27,11 +27,11 @@ public class LottoNumber implements Comparable<LottoNumber> {
         this.number = number;
     }
 
-    public static LottoNumber of(final String number) {
+    public static LottoNumber valueOf(final String number) {
         return new LottoNumber(number);
     }
 
-    public static LottoNumber of(final int number) {
+    public static LottoNumber valueOf(final int number) {
         return new LottoNumber(number);
     }
 

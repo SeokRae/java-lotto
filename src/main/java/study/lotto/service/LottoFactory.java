@@ -25,7 +25,7 @@ public class LottoFactory {
     static {
         LOTTO_NUMBERS = IntStream.rangeClosed(MIN_NUMBER_BOUND, MAX_NUMBER_BOUND)
                 .boxed()
-                .map(LottoNumber::of)
+                .map(LottoNumber::valueOf)
                 .collect(toList());
     }
 
@@ -60,7 +60,7 @@ public class LottoFactory {
 
     private static List<LottoNumber> makeManualLottoSet(final Set<Integer> integers) {
         return integers.stream()
-                .map(LottoNumber::of)
+                .map(LottoNumber::valueOf)
                 .collect(toList());
     }
 }

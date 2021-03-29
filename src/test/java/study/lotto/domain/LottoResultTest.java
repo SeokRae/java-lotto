@@ -22,10 +22,10 @@ class LottoResultTest {
     @BeforeEach
     void setUp() {
         List<LottoNumber> collect = IntStream.range(1, 7)
-                .mapToObj(LottoNumber::of)
+                .mapToObj(LottoNumber::valueOf)
                 .collect(Collectors.toList());
         List<LottoNumber> collect1 = IntStream.range(7, 13)
-                .mapToObj(LottoNumber::of)
+                .mapToObj(LottoNumber::valueOf)
                 .collect(Collectors.toList());
         lottoList = Arrays.asList(Lotto.of(collect), Lotto.of(collect1));
     }
@@ -33,7 +33,7 @@ class LottoResultTest {
     private static Stream<Arguments> winningEntry() {
         return Stream.of(
             Arguments.of(
-                    WinningLotto.of("1,2,3,4,5,6", LottoNumber.of(8)),
+                    WinningLotto.of("1,2,3,4,5,6", LottoNumber.valueOf(8)),
                     LottoMatch.RANK_FIRST,
                     1
             )
@@ -42,7 +42,7 @@ class LottoResultTest {
     private static Stream<Arguments> winningRateEntry() {
         return Stream.of(
             Arguments.of(
-                    WinningLotto.of("1,2,3,4,5,6", LottoNumber.of(8)),
+                    WinningLotto.of("1,2,3,4,5,6", LottoNumber.valueOf(8)),
                     ProfitMessage.PROFIT
             )
         );

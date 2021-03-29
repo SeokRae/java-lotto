@@ -35,7 +35,7 @@ public class WinningLotto {
     private static Lotto parseLotto(final String winningLotto) {
         String[] split = parseSplit(winningLotto);
         return Lotto.of(Arrays.stream(split)
-                .map(LottoNumber::of)
+                .map(LottoNumber::valueOf)
                 .collect(Collectors.toList()));
     }
 

@@ -19,7 +19,7 @@ public class LottoApplication {
         LottoStore lottoStore = new LottoStore();
         ResultView resultView = new ResultView();
 
-        Money money = Money.of(inputView.requestPurchasedLotto());
+        Money money = Money.valueOf(inputView.requestPurchasedLotto());
         String manualCount = inputView.requestManual();
         RequestLottoArgument lottoArgument = RequestLottoArgument.of(money, manualCount);
 
@@ -30,7 +30,7 @@ public class LottoApplication {
         resultView.printLottos(lottos);
 
         String winningNumbers = inputView.requestWinningNumbers();
-        LottoNumber bonusNumber = LottoNumber.of(inputView.requestBonusNumber());
+        LottoNumber bonusNumber = LottoNumber.valueOf(inputView.requestBonusNumber());
 
         WinningLotto winningLotto = WinningLotto.of(winningNumbers, bonusNumber);
 

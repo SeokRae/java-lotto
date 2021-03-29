@@ -18,7 +18,7 @@ class RequestLottoArgumentTest {
 
     private static Stream<Arguments> lottoArgumentRange() {
         return Stream.of(
-                Arguments.of(Money.of(1000), "a")
+                Arguments.of(Money.valueOf(1000), "a")
         );
     }
 

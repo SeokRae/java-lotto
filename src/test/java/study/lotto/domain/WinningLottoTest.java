@@ -19,7 +19,7 @@ class WinningLottoTest {
     void create_지난주_당첨번호_및_보너스_번호() {
         // given
         String winningNumbers = "1,2,3,4,5,6";
-        LottoNumber bonusNumber = LottoNumber.of(15);
+        LottoNumber bonusNumber = LottoNumber.valueOf(15);
         // when
         WinningLotto winningLotto = WinningLotto.of(winningNumbers, bonusNumber);
         // then
@@ -31,7 +31,7 @@ class WinningLottoTest {
     void create_지난주_당첨번호_및_보너스_번호_예외처리() {
         // given
         String winningNumbers = "1,2,3,4,5,6";
-        LottoNumber bonusNumber = LottoNumber.of(1);
+        LottoNumber bonusNumber = LottoNumber.valueOf(1);
         // when
 
         // then
@@ -44,11 +44,11 @@ class WinningLottoTest {
     void match_지난주_당첨번호_매칭() {
         // given
         String lottoNumbers = "1,2,3,4,5,6";
-        LottoNumber bonusNumber = LottoNumber.of(7);
+        LottoNumber bonusNumber = LottoNumber.valueOf(7);
         // when
         Set<LottoNumber> winningLottoNumbers = Arrays.stream(
                 lottoNumbers.split(","))
-                .map(LottoNumber::of)
+                .map(LottoNumber::valueOf)
                 .collect(Collectors.toSet());
 
         WinningLotto winningLotto = WinningLotto.of(lottoNumbers, bonusNumber);
@@ -62,12 +62,12 @@ class WinningLottoTest {
     void winningReward_당첨금액_확인() {
         // given
         String lottoNumbers = "1,2,3,4,5,6";
-        LottoNumber bonusNumber = LottoNumber.of(7);
+        LottoNumber bonusNumber = LottoNumber.valueOf(7);
         // when
         WinningLotto winningLotto = WinningLotto.of(lottoNumbers, bonusNumber);
         Set<LottoNumber> winningLottoNumbers = Arrays.stream(
                 lottoNumbers.split(","))
-                .map(LottoNumber::of)
+                .map(LottoNumber::valueOf)
                 .collect(Collectors.toSet());
         long winningReward = winningLotto.winningReward(Lotto.of(winningLottoNumbers));
         // then

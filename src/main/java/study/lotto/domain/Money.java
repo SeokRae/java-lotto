@@ -20,11 +20,11 @@ public class Money {
         this.money = BigDecimal.valueOf(money);
     }
 
-    public static Money of(final int money) {
+    public static Money valueOf(final int money) {
         return new Money(money);
     }
 
-    public static Money of(final String money) {
+    public static Money valueOf(final String money) {
         int parseMoney = parseIntMoney(money);
         return new Money(parseMoney);
     }

@@ -25,7 +25,7 @@ class LottoStoreTest {
         LottoStore lottoStore = new LottoStore();
 
         // when
-        RequestLottoArgument lottoArgument = RequestLottoArgument.of(Money.of(1000), "1");
+        RequestLottoArgument lottoArgument = RequestLottoArgument.of(Money.valueOf(1000), "1");
 
         List<Set<Integer>> lotto = Arrays.asList(
                 IntStream.rangeClosed(1, 6).boxed().collect(Collectors.toSet()));

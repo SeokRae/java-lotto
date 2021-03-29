@@ -24,26 +24,26 @@ public class LottosTest {
 
     private static Stream<Arguments> lottoListEntry() {
         return Stream.of(
-                Arguments.of("3,4,5,6,7,8", LottoNumber.of(10), LottoMatch.RANK_THIRD, 1),
-                Arguments.of("4,5,6,7,8,9", LottoNumber.of(10), LottoMatch.RANK_FOURTH, 1),
-                Arguments.of("5,6,7,8,9,10", LottoNumber.of(11), LottoMatch.RANK_ETC, 2)
+                Arguments.of("3,4,5,6,7,8", LottoNumber.valueOf(10), LottoMatch.RANK_THIRD, 1),
+                Arguments.of("4,5,6,7,8,9", LottoNumber.valueOf(10), LottoMatch.RANK_FOURTH, 1),
+                Arguments.of("5,6,7,8,9,10", LottoNumber.valueOf(11), LottoMatch.RANK_ETC, 2)
         );
     }
 
     private static Stream<Arguments> winningRateEntry() {
         return Stream.of(
-                Arguments.of("1,2,3,4,5,6", LottoNumber.of(10), 666666.6666666666),
-                Arguments.of("2,3,4,5,6,7", LottoNumber.of(10), 500.0),
-                Arguments.of("3,4,5,6,7,8", LottoNumber.of(10), 18.333333333333332),
-                Arguments.of("4,5,6,7,8,9", LottoNumber.of(10), 18.333333333333332),
-                Arguments.of("5,6,7,8,9,10", LottoNumber.of(11), 10000.0)
+                Arguments.of("1,2,3,4,5,6", LottoNumber.valueOf(10), 666666.6666666666),
+                Arguments.of("2,3,4,5,6,7", LottoNumber.valueOf(10), 500.0),
+                Arguments.of("3,4,5,6,7,8", LottoNumber.valueOf(10), 18.333333333333332),
+                Arguments.of("4,5,6,7,8,9", LottoNumber.valueOf(10), 18.333333333333332),
+                Arguments.of("5,6,7,8,9,10", LottoNumber.valueOf(11), 10000.0)
         );
     }
 
     private static Stream<Arguments> profitMessageEntry() {
         return Stream.of(
-                Arguments.of("2,3,4,5,6,7", LottoNumber.of(1), "이익"),
-                Arguments.of("13,14,15,16,17,18", LottoNumber.of(1), "손해")
+                Arguments.of("2,3,4,5,6,7", LottoNumber.valueOf(1), "이익"),
+                Arguments.of("13,14,15,16,17,18", LottoNumber.valueOf(1), "손해")
         );
     }
 
@@ -52,11 +52,11 @@ public class LottosTest {
     @BeforeEach
     void setUp() {
         lottoList = Arrays.asList(
-                Lotto.of(IntStream.range(1, 7).mapToObj(LottoNumber::of)
+                Lotto.of(IntStream.range(1, 7).mapToObj(LottoNumber::valueOf)
                         .collect(Collectors.toList())),
-                Lotto.of(IntStream.range(6, 12).mapToObj(LottoNumber::of)
+                Lotto.of(IntStream.range(6, 12).mapToObj(LottoNumber::valueOf)
                         .collect(Collectors.toList())),
-                Lotto.of(IntStream.range(9, 15).mapToObj(LottoNumber::of)
+                Lotto.of(IntStream.range(9, 15).mapToObj(LottoNumber::valueOf)
                         .collect(Collectors.toList()))
         );
     }

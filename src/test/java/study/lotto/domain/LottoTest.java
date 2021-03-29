@@ -17,7 +17,7 @@ public class LottoTest {
     @BeforeEach
     void setUp() {
         List<LottoNumber> collect = IntStream.range(1, 7)
-                .mapToObj(LottoNumber::of)
+                .mapToObj(LottoNumber::valueOf)
                 .collect(Collectors.toList());
         lotto = Lotto.of(collect);
     }
@@ -27,7 +27,7 @@ public class LottoTest {
     void match_로또_번호_생성_및_숫자매칭() {
         // given
         List<LottoNumber> collect = IntStream.range(1, 7)
-                .mapToObj(LottoNumber::of)
+                .mapToObj(LottoNumber::valueOf)
                 .collect(Collectors.toList());
         Lotto given = Lotto.of(collect);
         // when

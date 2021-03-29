@@ -25,14 +25,14 @@ public class RequestLottoArgument {
     }
 
     public static RequestLottoArgument of(final int money) {
-        return new RequestLottoArgument(Money.of(money));
+        return new RequestLottoArgument(Money.valueOf(money));
     }
 
     public static RequestLottoArgument of(final String money) {
         if(isNotNullAndIsBlank(money)) {
             throw new LottoException(GUIDE_ERR_NOT_FOUND_MONEY);
         }
-        return new RequestLottoArgument(Money.of(money));
+        return new RequestLottoArgument(Money.valueOf(money));
     }
 
     public static RequestLottoArgument of(final Money money, final String manualCount) {
