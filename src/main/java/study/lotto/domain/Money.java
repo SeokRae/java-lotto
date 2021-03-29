@@ -17,7 +17,7 @@ public class Money {
         if(money < LOTTO_PRICE) {
             throw new LottoException(GUIDE_ERR_CANNOT_BUY_LOTTO);
         }
-        this.money = new BigDecimal(money);
+        this.money = BigDecimal.valueOf(money);
     }
 
     public static Money of(final int money) {
