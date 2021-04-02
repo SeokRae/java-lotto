@@ -26,9 +26,13 @@ public class Lotto {
     }
 
     private void checkValidation(final Collection<LottoNumber> lottoNumbers) {
-        if(lottoNumbers.size() != LOTTO_MAX_SIZE) {
+        if(isLottoNumberSize(lottoNumbers)) {
             throw new LottoException(GUIDE_ERR_LOTTO_SIZE);
         }
+    }
+
+    private boolean isLottoNumberSize(Collection<LottoNumber> lottoNumbers) {
+        return lottoNumbers.size() != LOTTO_MAX_SIZE;
     }
 
     private Set<LottoNumber> getLottoNumbers(final Collection<LottoNumber> lottoNumbers) {
